@@ -1,0 +1,10 @@
+I found out that the buffer starting at the address '0xbfffe069'. I found the address of the eip (the register we save there the next instruction address).
+It's 67 bytes after the start of the buffer.
+I wrote the shellcode, and found out it's have size of 27 bytes, so I added padding to fill it until we get the address we want. (I added 40 "A"s)
+Then, after I get the address we wanted, I puted there the address of the start of the buffer, so the insruction of the shellcode will execute.
+
+The shellcode: like we saw in class, with change: MOV AL, 0x0B instead of EAX to avoid zeros inside the string we get from assemble.py.
+ECX, EDX are 0.
+
+
+

@@ -1,0 +1,7 @@
+The vulnerability: the program don't check the lenght of the password properly.
+
+The buff have size of 20, it's full from index 0 to 11, so we have engouh space in it for less then 10 chars.
+The longer password we can try is 10 chars. (There is a check that the password is not longer then 10 chars).
+The Strcat function concatenate two string without checking the destination string size, so if we put password with 10 chars, it's will override the value in the address of auth (Because auth is in the stack before buff), we will put there 1.
+if auth == 1, the check_password function return 1 and the program will run the command we wanted.
+  

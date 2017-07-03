@@ -1,0 +1,2 @@
+In the sudo program, there is no check of the length of the input string. 
+So, if we put long enough password, it's can extends the size of buff and override addresses in the stack, that's what caused the segmantion fault.
